@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civil B.Tech '29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep: #071a33;
+    --blue-mid: #123a6b;
+    --blue-blueprint: #1e56a0;
+    --cyan-line: #6fd6f2;
+    --paper: #eef1ea;
+    --amber: #f2a93b;
+    --grid-line: rgba(111, 214, 242, 0.10);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    min-height:100vh;
+    background:
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--blue-mid) 48%, var(--blue-blueprint) 100%);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: var(--paper);
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* blueprint grid overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* faint compass-arc decoration */
+  body::after{
+    content:"";
+    position:fixed;
+    top:-220px; right:-220px;
+    width:640px; height:640px;
+    border:1px solid rgba(111,214,242,0.15);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:1100px;
+    margin:0 auto;
+    padding: 64px 28px 90px;
+  }
+
+  header{
+    margin-bottom: 56px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing: 0.18em;
+    text-transform:uppercase;
+    color: var(--cyan-line);
+    border:1px solid rgba(111,214,242,0.35);
+    padding:6px 14px;
+    border-radius: 3px;
+    background: rgba(111,214,242,0.06);
+  }
+
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    background: var(--amber);
+    border-radius:50%;
+    display:inline-block;
+  }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    line-height:1.05;
+    margin-top:22px;
+    letter-spacing:-0.01em;
+  }
+
+  h1 span{
+    background: linear-gradient(90deg, var(--cyan-line), #b6f0ff 60%, var(--amber));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .subhead{
+    margin-top:18px;
+    max-width: 560px;
+    font-size:1.02rem;
+    line-height:1.6;
+    color: rgba(238,241,234,0.72);
+  }
+
+  .subhead code{
+    font-family:'IBM Plex Mono', monospace;
+    background: rgba(111,214,242,0.12);
+    padding:2px 6px;
+    border-radius:3px;
+    font-size:0.92em;
+    color: var(--cyan-line);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 920px){
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+  .card{
+    position:relative;
+    background: linear-gradient(155deg, rgba(238,241,234,0.98), rgba(220,228,224,0.94));
+    color: #0b1f3a;
+    border-radius: 10px;
+    padding: 22px 20px 0 20px;
+    min-height: 190px;
+    cursor:pointer;
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 10px 30px rgba(3, 12, 26, 0.35), inset 0 0 0 1px rgba(255,255,255,0.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow:hidden;
+  }
+
+  .card:hover, .card:focus-visible{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(3, 12, 26, 0.5), 0 0 0 2px var(--cyan-line);
+    outline:none;
+  }
+
+  .card .idx{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    color: rgba(11,31,58,0.45);
+  }
+
+  .card h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.14rem;
+    line-height:1.28;
+    font-weight:600;
+    margin-top:10px;
+    color:#0b1f3a;
+  }
+
+  .card .desc{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    font-family:'Inter', sans-serif;
+    font-size:0.86rem;
+    line-height:1.5;
+    color: rgba(11,31,58,0.72);
+    transition: max-height 0.32s ease, opacity 0.28s ease, margin 0.28s ease;
+  }
+
+  .card.open .desc{
+    max-height:180px;
+    opacity:1;
+    margin-top:10px;
+  }
+
+  .desc .room{
+    display:block;
+    margin-top:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color: var(--blue-blueprint);
+    font-weight:600;
+  }
+
+  /* title block strip, like an engineering drawing sheet */
+  .titleblock{
+    margin-top:16px;
+    border-top: 1.5px solid rgba(11,31,58,0.25);
+    padding: 10px 0 12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:0.86rem;
+    letter-spacing:0.03em;
+    color: var(--blue-blueprint);
+  }
+
+  .plus{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 1.1rem;
+    color: rgba(11,31,58,0.4);
+    transition: transform 0.25s ease;
+  }
+
+  .card.open .plus{ transform: rotate(45deg); color: var(--amber); }
+
+  .timetable-section{
+    margin-top: 80px;
+  }
+
+  .tt-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom: 22px;
+  }
+
+  .tt-header h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+  }
+
+  .tt-header h2 span{
+    background: linear-gradient(90deg, var(--cyan-line), var(--amber));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .tt-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color: rgba(238,241,234,0.5);
+  }
+
+  .tt-frame{
+    border-radius: 14px;
+    padding: 3px;
+    background: linear-gradient(120deg, rgba(111,214,242,0.5), rgba(242,169,59,0.35));
+    box-shadow: 0 20px 46px rgba(3,12,26,0.5);
+  }
+
+  .tt-scroll{
+    overflow-x:auto;
+    border-radius: 12px;
+    background: var(--navy-deep);
+  }
+
+  table.timetable{
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 980px;
+  }
+
+  table.timetable thead th{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, var(--blue-blueprint), var(--blue-mid));
+    color: var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding: 15px 8px;
+    text-align:center;
+    border-bottom: 2px solid var(--cyan-line);
+    white-space:nowrap;
+  }
+
+  table.timetable thead th:first-child{
+    background: var(--navy-deep);
+    left:0;
+    z-index:3;
+  }
+
+  table.timetable tbody th{
+    position: sticky;
+    left:0;
+    z-index:1;
+    background: var(--navy-deep);
+    color: var(--cyan-line);
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:0.94rem;
+    padding: 14px 18px;
+    text-align:left;
+    border-bottom: 1px solid rgba(111,214,242,0.14);
+    white-space:nowrap;
+  }
+
+  table.timetable tbody tr:nth-child(odd){
+    background: rgba(238,241,234,0.03);
+  }
+  table.timetable tbody tr:nth-child(even){
+    background: rgba(238,241,234,0.06);
+  }
+
+  table.timetable td{
+    padding: 8px;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom: 1px solid rgba(111,214,242,0.10);
+    min-width: 108px;
+  }
+
+  /* free period: quiet diagonal hatch, reads as "open" not "broken" */
+  td.free{
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(111,214,242,0.045),
+      rgba(111,214,242,0.045) 6px,
+      transparent 6px,
+      transparent 13px
+    );
+  }
+
+  .chip{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    align-items:center;
+    padding: 9px 8px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--sc) 16%, rgba(238,241,234,0.97));
+    border-left: 3px solid var(--sc);
+    box-shadow: 0 3px 10px rgba(3,12,26,0.28);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  tr:hover .chip{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(3,12,26,0.4);
+  }
+
+  .chip .scode{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700;
+    font-size:0.8rem;
+    color: color-mix(in srgb, var(--sc) 78%, #071a33);
+    letter-spacing:0.01em;
+  }
+
+  .chip .sroom{
+    font-family:'Inter', sans-serif;
+    font-size:0.7rem;
+    color: rgba(11,31,58,0.62);
+  }
+
+  .lab-cell .chip{
+    padding: 9px 14px;
+  }
+
+  .legend{
+    margin-top: 22px;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px 20px;
+  }
+
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    color: rgba(238,241,234,0.68);
+  }
+
+  .legend-dot{
+    width:10px; height:10px;
+    border-radius:3px;
+    background: var(--sc);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--sc) 70%, transparent);
+    flex-shrink:0;
+  }
+
+  footer{
+    margin-top:64px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color: rgba(238,241,234,0.4);
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow">Batch of 2029 · Department of Civil Engineering</span>
+      <h1>Welcome, <span>Civil B.Tech '29</span> mate</h1>
+      <p class="subhead">Eight courses, one semester's worth of concrete, water, and numbers. Tap a sheet to unfold what it covers — codes read like <code>CE20207</code>, straight off the syllabus.</p>
+    </header>
+
+    <!-- Subject cards are rendered by script.js from subjects.json -->
+    <div class="grid" id="grid"></div>
+
+    <section class="timetable-section">
+      <div class="tt-header">
+        <h2>Your <span>Timetable</span> — <span id="tt-term">Autumn 2026–27</span></h2>
+        <span class="tt-note" id="tt-note">Loading…</span>
+      </div>
+
+      <div class="tt-frame">
+        <div class="tt-scroll">
+          <table class="timetable">
+            <thead>
+              <tr id="tt-head-row"></tr>
+            </thead>
+            <tbody id="tt-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <footer>Drawn up for the batch · not an official department page</footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

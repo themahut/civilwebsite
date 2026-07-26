@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "term": "Autumn 2026–27",
+    "omittedCourse": "RX60023"
+  },
+  "days": ["Mon", "Tue", "Wed", "Thur", "Fri"],
+  "times": [
+    "8:00–8:55 AM",
+    "9:00–9:55 AM",
+    "10:00–10:55 AM",
+    "11:00–11:55 AM",
+    "12:00–12:55 PM",
+    "2:00–2:55 PM",
+    "3:00–3:55 PM",
+    "4:00–4:55 PM",
+    "5:00–5:55 PM"
+  ],
+  "subjects": [
+    {
+      "code": "CE20207",
+      "name": "Probability and Statistics in Civil Engineering",
+      "desc": "Distributions, hypothesis testing, and regression applied to material strength, hydrology, and load data.",
+      "room": "NC341",
+      "color": "#2f7fd1"
+    },
+    {
+      "code": "CE21201",
+      "name": "Solid Mechanics",
+      "desc": "Stress, strain, bending, torsion, and deflection — the fundamentals behind every structural design decision.",
+      "room": "NR324, NR323",
+      "color": "#7c5cf0"
+    },
+    {
+      "code": "CE21203",
+      "name": "Hydraulics",
+      "desc": "Flow through pipes and open channels, energy losses, and the behaviour of water under pressure.",
+      "room": "NC341",
+      "color": "#17a398"
+    },
+    {
+      "code": "CE20203",
+      "name": "Geomatics",
+      "desc": "Surveying, mapping, and spatial data — total stations, GPS, and GIS for reading the land.",
+      "room": "NC341",
+      "color": "#e0745a"
+    },
+    {
+      "code": "CE29203",
+      "name": "Hydraulic and Water Resources Engineering Laboratory",
+      "desc": "Bench and flume experiments: flow measurement, pump characteristics, and open-channel behaviour.",
+      "room": "Lab block",
+      "color": "#f2a93b"
+    },
+    {
+      "code": "CE20209",
+      "name": "Construction Planning and Management",
+      "desc": "Scheduling, resource allocation, cost estimation, and the logistics of getting a project built on time.",
+      "room": "NC341",
+      "color": "#4c9a2a"
+    },
+    {
+      "code": "CE20211",
+      "name": "Environmental Engineering I",
+      "desc": "Water supply, treatment processes, and the systems that keep a city's water safe to drink.",
+      "room": "TBC",
+      "color": null
+    },
+    {
+      "code": "CE21205",
+      "name": "Concrete Technology",
+      "desc": "Mix design, curing, and the material science behind the most-used building material on Earth.",
+      "room": "TBC",
+      "color": null
+    }
+  ],
+  "schedule": [
+    { "day": "Mon", "time": "8:00–8:55 AM", "code": "CE20207" },
+    { "day": "Mon", "time": "9:00–9:55 AM", "code": "CE20207" },
+    { "day": "Mon", "time": "10:00–10:55 AM", "code": "CE21201" },
+    { "day": "Mon", "time": "12:00–12:55 PM", "code": "CE21203" },
+
+    { "day": "Tue", "time": "10:00–10:55 AM", "code": "CE21203" },
+    { "day": "Tue", "time": "11:00–11:55 AM", "code": "CE21203" },
+    { "day": "Tue", "time": "12:00–12:55 PM", "code": "CE20207" },
+    { "day": "Tue", "time": "2:00–2:55 PM", "code": "CE29203", "colspan": 2 },
+
+    { "day": "Wed", "time": "8:00–8:55 AM", "code": "CE21201" },
+    { "day": "Wed", "time": "9:00–9:55 AM", "code": "CE21201" },
+    { "day": "Wed", "time": "12:00–12:55 PM", "code": "CE20203" },
+
+    { "day": "Thur", "time": "8:00–8:55 AM", "code": "CE21203" },
+    { "day": "Thur", "time": "10:00–10:55 AM", "code": "CE21201" },
+    { "day": "Thur", "time": "11:00–11:55 AM", "code": "CE20203" },
+    { "day": "Thur", "time": "3:00–3:55 PM", "code": "CE20209" },
+    { "day": "Thur", "time": "4:00–4:55 PM", "code": "CE20209" },
+
+    { "day": "Fri", "time": "9:00–9:55 AM", "code": "CE20203" },
+    { "day": "Fri", "time": "3:00–3:55 PM", "code": "CE20209" }
+  ]
+}
