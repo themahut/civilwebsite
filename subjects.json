@@ -57,20 +57,6 @@
       "desc": "Scheduling, resource allocation, cost estimation, and the logistics of getting a project built on time.",
       "room": "NC341",
       "color": "#4c9a2a"
-    },
-    {
-      "code": "CE20211",
-      "name": "Environmental Engineering I",
-      "desc": "Water supply, treatment processes, and the systems that keep a city's water safe to drink.",
-      "room": "TBC",
-      "color": null
-    },
-    {
-      "code": "CE21205",
-      "name": "Concrete Technology",
-      "desc": "Mix design, curing, and the material science behind the most-used building material on Earth.",
-      "room": "TBC",
-      "color": null
     }
   ],
   "schedule": [
