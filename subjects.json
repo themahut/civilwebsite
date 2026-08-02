@@ -21,7 +21,8 @@
       "desc": "Distributions, hypothesis testing, and regression applied to material strength, hydrology, and load data.",
       "room": "NC341",
       "color": "#2f7fd1",
-      "link": "https://drive.google.com/drive/folders/1bo1-J_ko6a53Hm46vpZxP0zl1zhag3Fe"
+      "link": "https://drive.google.com/drive/folders/1bo1-J_ko6a53Hm46vpZxP0zl1zhag3Fe",
+      "linkLabel": "Open Drive folder"
     },
     {
       "code": "CE21201",
@@ -29,8 +30,10 @@
       "desc": "Stress, strain, bending, torsion, and deflection — the fundamentals behind every structural design decision.",
       "room": "NR324, NR323",
       "color": "#7c5cf0",
-      "link":"https://drive.google.com/drive/folders/1o8vMiCgwyHD4kT8g7gyN8-DrhHzqPwpb",
-      "link":"https://moodle.iitkgp.ac.in/moodle/course/view.php?id=791"
+      "link": "https://drive.google.com/drive/folders/1bo1-J_ko6a53Hm46vpZxP0zl1zhag3Fe",
+      "linkLabel": "Open Drive folder",
+      "link2": "https://moodle.iitkgp.ac.in/moodle/course/view.php?id=791",
+      "link2Label": "Open moodle"
     },
     {
       "code": "CE21203",
@@ -60,6 +63,7 @@
       "room": "NC341",
       "color": "#4c9a2a",
       "link": "https://moodle.iitkgp.ac.in/moodle/course/view.php?id=847"
+      "linkLabel": "Open moodle"
     }
   ],
   "schedule": [
