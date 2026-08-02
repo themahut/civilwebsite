@@ -16,14 +16,17 @@ function buildCards(data) {
     card.className = 'card';
     card.tabIndex = 0;
     const linkHtml = s.link
-      ? `<a class="resource-link" href="${s.link}" target="_blank" rel="noopener noreferrer">Open Drive folder ↗</a>`
-      : '';
+    ? `<a class="resource-link" href="${s.link}" target="_blank" rel="noopener noreferrer">${s.linkLabel || 'Open Drive folder'} ↗</a>`
+    : '';
+    const linkHtml2 = s.link2
+    ? `<a class="resource-link" href="${s.link2}" target="_blank" rel="noopener noreferrer">${s.link2Label || 'Open link'} ↗</a>`
+    : '';
 
     card.innerHTML = `
       <div>
         <div class="idx">SHEET ${String(i + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</div>
         <h3>${s.name}</h3>
-        <div class="desc">${s.desc}<span class="room">Classroom: ${s.room}</span>${linkHtml}</div>
+        <div class="desc">${s.desc}<span class="room">Classroom: ${s.room}</span>${linkHtml}${linkHtml2}</div>
       </div>
       <div class="titleblock">
         <span class="code">${s.code}</span>
@@ -36,11 +39,9 @@ function buildCards(data) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
 
-    const linkEl = card.querySelector('.resource-link');
-    if (linkEl) {
-      // don't let the toggle swallow the click, and don't collapse the card when it's used
+    card.querySelectorAll('.resource-link').forEach(linkEl => {
       linkEl.addEventListener('click', (e) => e.stopPropagation());
-    }
+    });
 
     grid.appendChild(card);
   });
