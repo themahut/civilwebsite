@@ -30,6 +30,7 @@
       "desc": "Stress, strain, bending, torsion, and deflection — the fundamentals behind every structural design decision.",
       "room": "NR324, NR323",
       "color": "#7c5cf0"
+      "link":"https://drive.google.com/drive/folders/1yCERB-UTfJBQ0tO-0UJ6QOBWc5nLMhcL?usp=drive_link"
     },
     {
       "code": "CE21203",
@@ -58,20 +59,6 @@
       "desc": "Scheduling, resource allocation, cost estimation, and the logistics of getting a project built on time.",
       "room": "NC341",
       "color": "#4c9a2a"
-    },
-    {
-      "code": "CE20211",
-      "name": "Environmental Engineering I",
-      "desc": "Water supply, treatment processes, and the systems that keep a city's water safe to drink.",
-      "room": "TBC",
-      "color": null
-    },
-    {
-      "code": "CE21205",
-      "name": "Concrete Technology",
-      "desc": "Mix design, curing, and the material science behind the most-used building material on Earth.",
-      "room": "TBC",
-      "color": null
     }
   ],
   "schedule": [
@@ -83,7 +70,7 @@
     { "day": "Tue", "time": "10:00–10:55 AM", "code": "CE21203" },
     { "day": "Tue", "time": "11:00–11:55 AM", "code": "CE21203" },
     { "day": "Tue", "time": "12:00–12:55 PM", "code": "CE20207" },
-    { "day": "Tue", "time": "2:00–2:55 PM", "code": "CE29203", "colspan": 2 },
+    { "day": "Tue", "time": "2:00–2:55 PM", "code": "CE29203", "colspan": 3 },
 
     { "day": "Wed", "time": "8:00–8:55 AM", "code": "CE21201" },
     { "day": "Wed", "time": "9:00–9:55 AM", "code": "CE21201" },
