@@ -30,6 +30,7 @@
       "room": "NR324, NR323",
       "color": "#7c5cf0",
       "link":"https://drive.google.com/drive/folders/1o8vMiCgwyHD4kT8g7gyN8-DrhHzqPwpb"
+      "link":"https://moodle.iitkgp.ac.in/moodle/course/view.php?id=791"
     },
     {
       "code": "CE21203",
@@ -57,7 +58,8 @@
       "name": "Construction Planning and Management",
       "desc": "Scheduling, resource allocation, cost estimation, and the logistics of getting a project built on time.",
       "room": "NC341",
-      "color": "#4c9a2a"
+      "color": "#4c9a2a",
+      "link": "https://moodle.iitkgp.ac.in/moodle/course/view.php?id=847"
     }
   ],
   "schedule": [
