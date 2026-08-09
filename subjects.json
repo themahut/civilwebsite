@@ -40,7 +40,9 @@
       "name": "Hydraulics",
       "desc": "Flow through pipes and open channels, energy losses, and the behaviour of water under pressure.",
       "room": "NC341",
-      "color": "#17a398"
+      "color": "#17a398",
+      "link":"https://www.youtube.com/watch?v=CAZNIuQTE-0&list=PLbRMhDVUMngdInIhHKoECcrz27t_MJvD4&index=29&pp=iAQB",
+      "linkLabel":"Open YT playlist"
     },
     {
       "code": "CE20203",
